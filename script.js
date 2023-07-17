@@ -3,13 +3,13 @@ console.log(btnMove);
 let product = document.getElementsByClassName("profile-card");
 let product_page = Math.ceil(product.length / 4);
 let l = 0;
-let movePer = 25.34;
-let maxMove = 126;
+let movePer = 35.34;
+let maxMove = 160;
 // mobile_view
 let mob_view = window.matchMedia("(max-width: 768px)");
 if (mob_view.matches) {
   movePer = 50.36;
-  maxMove = 504;
+  maxMove = 754;
 }
 let right_mover = () => {
   l = l + movePer;
@@ -32,7 +32,9 @@ let left_mover = () => {
     l = 0;
   }
   for (const i of product) {
-    i.style.left = "-" + l + "%";
+    if (product_page > 0) {
+      i.style.left = "-" + l + "%";
+    }
   }
 };
 btnMove[1].onclick = () => {
